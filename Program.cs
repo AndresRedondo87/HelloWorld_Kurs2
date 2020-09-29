@@ -169,8 +169,27 @@ namespace HelloWorld
             SaludaAMiAmigo(amigo2);
             SaludaAMiAmigo(amigo3);
             SaludaATodosMisAmigos(amigo1, amigo2, amigo3);
+
+            Console.WriteLine(Calculate());
             Console.ReadKey();
 
+        }
+
+
+        public static int Calculate()
+        {
+            Console.WriteLine("Bitte trage die erste Zahl ein.");
+            string number1Input = Console.ReadLine();
+            Console.WriteLine("Bitte trage die zweite Zahl ein.");
+            string number2Input = Console.ReadLine();
+
+            int num1 = int.Parse(number1Input);
+            int num2 = int.Parse(number2Input);
+
+            int result = num1 + num2;
+
+            Console.WriteLine("Die Summe davon ist: ");
+            return result;
         }
         public static void SaludaAMiAmigo(string miAmigo)
         {
