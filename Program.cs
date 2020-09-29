@@ -160,12 +160,28 @@ namespace HelloWorld
             Console.WriteLine(Multiply(32, 55));
             Console.WriteLine(Divide(13, 23));
             Console.WriteLine(Add(15, 23));
-            Console.ReadKey();
+            Console.WriteLine(Add(Add(Add(2,2),6), 10));
 
+            string amigo1 = "Pedro";
+            string amigo2 = "Paco";
+            string amigo3 = "Francisco";
+            SaludaAMiAmigo(amigo1);
+            SaludaAMiAmigo(amigo2);
+            SaludaAMiAmigo(amigo3);
+            SaludaATodosMisAmigos(amigo1, amigo2, amigo3);
             Console.ReadKey();
 
         }
+        public static void SaludaAMiAmigo(string miAmigo)
+        {
+            Console.WriteLine("Hola " + miAmigo + ", amigo mío!");
+        }
+        public static void SaludaATodosMisAmigos(string miAmigo1, string miAmigo2, string miAmigo3)
+        {
+            Console.WriteLine("Hola {0}, {1}, {2}, meine Freunde!", miAmigo1, miAmigo2, miAmigo3);
+            Console.WriteLine($"Hola {miAmigo1}, {miAmigo2}, {miAmigo3}, meine Freunde!");
 
+        }
 
         // Zugriffsmodifizierer (static) Rückgabetyp Methodenname(Parameter1, Parameter2){MethodenRumpf}
         public static void WriteSomething()
