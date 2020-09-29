@@ -58,7 +58,7 @@ namespace HelloWorld
             float f1 = 1.337f;
 
             Console.WriteLine("Ergebnis ist " + ergebnis);
-            Console.ReadKey();
+            //Console.ReadKey();
 
             //--------------------------------------------------- Text bzw. Strings
             // Deklarieren und Initialisieren der Variablen meinName
@@ -73,7 +73,7 @@ namespace HelloWorld
             Console.WriteLine(allesGrossGeschrieben);
             Console.WriteLine(nachricht + " ist {0} Zeichen lang", laengeDesStrings);
             Console.WriteLine(nachricht + $" ist {laengeDesStrings} Zeichen lang");
-            Console.ReadKey();
+            //Console.ReadKey();
 
             //----------------------------------------------- Parsing - von String nach zahl konvertieren
             string myString = "15";
@@ -83,7 +83,7 @@ namespace HelloWorld
             int resultInt = num1 + num2;
             string result = myString + mySecondString;
             Console.WriteLine(resultInt);
-            Console.ReadKey();
+            //Console.ReadKey();
 
             //--------------------------------------------------- Namensgebung
             // variable heißt wie z.B. itemCount 
@@ -123,7 +123,7 @@ namespace HelloWorld
             string myBoolString = sunIsShining.ToString();
 
             Console.WriteLine(myBoolString);
-            Console.ReadKey();
+            //Console.ReadKey();
 
 
             //Herausforderung
@@ -143,9 +143,28 @@ namespace HelloWorld
 
             //--------------------------------------------------- Konstanten
             Console.WriteLine("Mein Geburtstag ist am {0}", birthday);
+            //Console.ReadKey();
+            Console.WriteLine();
+
+            WriteSomething();
+            WriteSomething();
+            WriteSomething();
+            string myArgument = "Hallo, ich bin super Text";
+            WriteSomethingSpecific(myArgument);
             Console.ReadKey();
 
+        }
 
+
+        // Zugriffsmodifizierer (static) Rückgabetyp Methodenname(Parameter1, Parameter2){MethodenRumpf}
+        public static void WriteSomething()
+        {
+            Console.WriteLine("Ich bin eine Methode!");
+        }
+
+        public static void WriteSomethingSpecific(string myText)
+        {
+            Console.WriteLine(myText);
         }
     }
 }
