@@ -146,11 +146,22 @@ namespace HelloWorld
             //Console.ReadKey();
             Console.WriteLine();
 
+
+            //------------------------------------------------------------------------------METHODEN
+            //--------------------------------------------------- Void Methoden
             WriteSomething();
             WriteSomething();
             WriteSomething();
             string myArgument = "Hallo, ich bin super Text";
             WriteSomethingSpecific(myArgument);
+
+            //--------------------------------------------------- Methoden Mit Rueckgabewert und Parametern
+            //int result = Add(15, 23);
+            Console.WriteLine(Multiply(32, 55));
+            Console.WriteLine(Divide(13, 23));
+            Console.WriteLine(Add(15, 23));
+            Console.ReadKey();
+
             Console.ReadKey();
 
         }
@@ -165,6 +176,23 @@ namespace HelloWorld
         public static void WriteSomethingSpecific(string myText)
         {
             Console.WriteLine(myText);
+        }
+
+
+        public static int Add(int num1, int num2)
+        {
+            return num1 + num2;
+        }
+
+        public static int Multiply(int num1, int num2)
+        {
+            int result = num1 * num2;
+            return result;
+        }
+
+        public static double Divide(double num1, double num2)
+        {
+            return num1 / num2;
         }
     }
 }
