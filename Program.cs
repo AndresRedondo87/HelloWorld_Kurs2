@@ -220,6 +220,26 @@ namespace HelloWorld
             // Write an informational entry to the event log.
             myLog.WriteEntry("Initiating event log.");
 
+
+            ////Herausforderung, selber durchNull abfangen, funktioniert
+            //try
+            //{
+            //    int userInt = int.Parse(userInput);
+            //    int divisionResult = userInt / 0;
+            //}
+            //catch (DivideByZeroException)
+            //{
+            //    Console.WriteLine("Durch 0 teilen ist nicht erlaubt!SELBER ERZEUGT");
+            //    myLog.WriteEntry("DivideByZeroException");
+            ////}
+            // catch (Exception)
+            //{
+            //    Console.WriteLine("Grundlegender Fehler! UNBEKANNTE FEHLER");
+            //}
+            //Herausforderung, selber durchNull abfangen Ende
+
+
+
             try
             {
                 int userInputAsInt = int.Parse(userInput);
@@ -229,7 +249,9 @@ namespace HelloWorld
             {
                 Console.WriteLine("Format war inkorrekt. Du hättest eine Nummer eintragen sollen!");
                 myLog.WriteEntry("FormatException");
-
+                //throw;
+                //dieses THROW wurde ein Error geworfen, das wollen wir eigentlich genau vermeiden so es wird auskommentiert, 
+                //konnte praktisch sein fuer Log, aber ich habe es noch nicht sauber gekriegt.
             }
             catch (ArgumentNullException)
             {
