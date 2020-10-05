@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HelloWorld
 {
@@ -173,47 +175,92 @@ namespace HelloWorld
             Console.WriteLine(Calculate());
             //Console.ReadKey();
 
-            Console.WriteLine("Bitte trage eine Zahl ein");
+
+            // --------------------------------- TRY CATCH UND FINALLY - Zum abfangen von Fehlern
+            Console.WriteLine("Bitte trage eine Zahl ein (0 zum Exception testen)");
             string userInput = Console.ReadLine();
 
+            //try
+            //{
+            //    int userInputAsInt = int.Parse(userInput);
+            //    int resultDivision = 5 / userInputAsInt;
+            //}
+            //catch (DivideByZeroException)
+            //{
+            //    Console.WriteLine("Durch 0 teilen ist nicht erlaubt!");
+
+            //}
+            //catch (Exception)
+            //{
+            //    Console.WriteLine("Grundlegender Fehler!");
+            //}
+
+            // Beim maus auf den Parse zu halten, zeig t es die Moeglichen Exceptions die es verursachen kann: hier sind die drei behandelt:
+            //selber alle trycatch sachen zusammen gepackt
+
+
+
+            // Create the source, if it does not already exist.
+            if (!EventLog.SourceExists("MySource"))
+            {
+                //An event log source should not be created and immediately used.
+                //There is a latency time to enable the source, it should be created
+                //prior to executing the application that uses the source.
+                //Execute this sample a second time to use the new source.
+                EventLog.CreateEventSource("MySource", "MyNewLog");
+                Console.WriteLine("CreatedEventSource");
+                Console.WriteLine("Exiting, execute the application a second time to use the source.");
+                // The source is created.  Exit the application to allow it to be registered.
+                return;
+            }
+            // Create an EventLog instance and assign its source.
+            EventLog myLog = new EventLog();
+            myLog.Source = "MySource";
+
+            // Write an informational entry to the event log.
+            myLog.WriteEntry("Initiating event log.");
+
             try
             {
                 int userInputAsInt = int.Parse(userInput);
-                int resultDivision = userInputAsInt / 0;
-            }
-            catch (DivideByZeroException)
-            {
-                Console.WriteLine("Durch 0 teilen ist nicht erlaubt!");
-
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Grundlegender Fehler!");
-            }
-
-
-
-            try
-            {
-                int userInputAsInt = int.Parse(userInput);
+                int resultDivision = 5 / userInputAsInt;
             }
             catch (FormatException)
             {
                 Console.WriteLine("Format war inkorrekt. Du hättest eine Nummer eintragen sollen!");
+                myLog.WriteEntry("FormatException");
+
             }
             catch (ArgumentNullException)
             {
                 Console.WriteLine("ArgumentNullException, der wert war leer (null)");
+                myLog.WriteEntry("ArgumentNullException");
+
             }
             catch (OverflowException)
             {
                 Console.WriteLine("OverflowException, der eingegebene Wert, war zu lang");
+                myLog.WriteEntry("OverflowException");
             }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Durch 0 teilen ist nicht erlaubt!");
+                myLog.WriteEntry("DivideByZeroException");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Grundlegender Fehler! UNBEKANNTE FEHLER");
+                myLog.WriteEntry("Grundlegender Fehler! UNBEKANNTE FEHLER");
+            }
+
+            //Finally wird sowieso immer ausgeführt
             finally
             {
                 // Verbindung schließen, oder Datei schließen.
-                Console.WriteLine("Ich werde sowieso ausgeführt");
+                Console.WriteLine("Finally sagt: Ich werde sowieso immer ausgeführt, \nauch wenn es fehlerfrei gelaufen ist!!");
+                myLog.WriteEntry("Entry for finally in log.");
             }
+            // --------------------------------- TRY CATCH UND FINALLY - Zum abfangen von Fehlern Ende
 
             Console.ReadKey();
 
