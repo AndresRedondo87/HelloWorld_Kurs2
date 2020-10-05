@@ -284,8 +284,76 @@ namespace HelloWorld
             }
             // --------------------------------- TRY CATCH UND FINALLY - Zum abfangen von Fehlern Ende
 
-            Console.ReadKey();
 
+            //----------------------------------------------Operatoren
+
+            int opnum1 = 5;
+            int opnum2 = 3;
+            int opnum3;
+
+            // unäre Operatoren
+            opnum3 = -opnum1;
+            Console.WriteLine("num3 ist {0}", opnum3);
+
+            bool isSunny = true;
+            Console.WriteLine("ist es sonnig? {0}", !isSunny);
+
+            // Inkrementoperatoren
+            int opnum = 0;
+            opnum++;
+            Console.WriteLine("num ist {0}", opnum);
+            Console.WriteLine("num ist {0}", opnum++);
+            // pre increment
+            Console.WriteLine("num ist {0}", ++opnum);
+
+            // decrement Operator
+            opnum--;
+            Console.WriteLine("num ist {0}", opnum);
+            Console.WriteLine("num ist {0}", opnum--);
+
+            // pre decrement
+            Console.WriteLine("num ist {0}", --opnum);
+
+            int resultop;
+            // Addition
+            resultop = opnum1 + opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} + num2:{1} ist {2}", opnum1, opnum2, resultop);
+            // Subtraktion
+            resultop = opnum1 - opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} - num2:{1} ist {2}", opnum1, opnum2, resultop);
+            // Multiplikation
+            resultop = opnum1 * opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} * num2:{1} ist {2}", opnum1, opnum2, resultop);
+            // Division
+            resultop = opnum1 / opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} / num2:{1} ist {2}", opnum1, opnum2, resultop);
+            // Modulo
+            resultop = opnum1 % opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} % num2:{1} ist {2}", opnum1, opnum2, resultop);
+
+            // Relationale und Typoperatoren
+            bool isLower;
+            isLower = opnum1 < opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} < num2:{1} ist {2}", opnum1, opnum2, isLower);
+
+            // Gleichheit
+            bool isEqual;
+            isEqual = opnum1 == opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} == num2:{1} ist {2}", opnum1, opnum2, isEqual);
+
+            isEqual = opnum1 != opnum2;
+            Console.WriteLine("Ergebnis von num1:{0} != num2:{1} ist {2}", opnum1, opnum2, isEqual);
+
+            // Konditionelle Operatoren
+            bool isLowerAndSunny;
+            // Kondition1 UND Kondition2
+            isLowerAndSunny = isLower && isSunny;
+            Console.WriteLine("Ergebnis von num1:{0} && num2:{1} ist {2}", opnum1, opnum2, isLowerAndSunny);
+            // Kondition1 ODER Kondition2
+            isLowerAndSunny = isLower || isSunny;
+            Console.WriteLine("Ergebnis von num1:{0} || num2:{1} ist {2}", opnum1, opnum2, isLowerAndSunny);
+
+            Console.ReadKey();
         }
 
 
