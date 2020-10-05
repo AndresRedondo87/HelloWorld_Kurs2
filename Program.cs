@@ -171,6 +171,50 @@ namespace HelloWorld
             SaludaATodosMisAmigos(amigo1, amigo2, amigo3);
 
             Console.WriteLine(Calculate());
+            //Console.ReadKey();
+
+            Console.WriteLine("Bitte trage eine Zahl ein");
+            string userInput = Console.ReadLine();
+
+            try
+            {
+                int userInputAsInt = int.Parse(userInput);
+                int resultDivision = userInputAsInt / 0;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Durch 0 teilen ist nicht erlaubt!");
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Grundlegender Fehler!");
+            }
+
+
+
+            try
+            {
+                int userInputAsInt = int.Parse(userInput);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Format war inkorrekt. Du hättest eine Nummer eintragen sollen!");
+            }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("ArgumentNullException, der wert war leer (null)");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException, der eingegebene Wert, war zu lang");
+            }
+            finally
+            {
+                // Verbindung schließen, oder Datei schließen.
+                Console.WriteLine("Ich werde sowieso ausgeführt");
+            }
+
             Console.ReadKey();
 
         }
